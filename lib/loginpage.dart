@@ -75,7 +75,7 @@ Image.asset(
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Teacher ID',
+                          'Teacher Id',
                           style: TextStyle(
                               color: Colors.grey.shade700,
                               fontSize: 16,
