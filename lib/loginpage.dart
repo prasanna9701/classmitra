@@ -42,34 +42,32 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // ---- Logo ----
-Image.asset(
-  'assets/images/punjabicon.jpg',
-  height: 120,
-  errorBuilder: (context, error, stackTrace) => 
-      const Icon(Icons.account_balance, size: 100, color: Colors.grey),
-),
-
-
-
-                      // // ---- Logo ----
-                      // Image.asset(
-                      //   'assets/punjab_logo.jpg',
-                      //   height: 120,
-                      //   errorBuilder: (context, error, stackTrace) =>
-                      //       const Icon(Icons.account_balance,
-                      //           size: 100, color: Colors.grey),
-                      // ),
+// Image.asset(
+//   'assets/images/punjabicon.jpg',
+//   height: 120,
+//   errorBuilder: (context, error, stackTrace) => 
+//       const Icon(Icons.account_balance, size: 100, color: Colors.grey),
+// ),
                       const SizedBox(height: 12),
                       const Text(
-                        'Government of Punjab',
+                        'ClassMitra',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: Color(0xFF1f2b5b),
                           letterSpacing: 0.5,
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 6),
+                      Text(
+                        'Welcome back. Please sign in to continue.',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey.shade700,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
 
                       // ---- Teacher ID ----
                       Align(
@@ -153,21 +151,8 @@ Image.asset(
                                   hintText: 'Enter Captcha',
                                 ),
                               ),
-                            ),
-                            Image.asset(
-                              'assets/captcha.png',
-                              height: 40,
-                              width: 120,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  height: 40,
-                                  width: 120,
-                                  color: Colors.grey.shade300,
-                                  child:
-                                      const Center(child: Text('Captcha')),
-                                );
-                              },
-                            ),
+                             ),
+                        
                           ],
                         ),
                       ),
@@ -221,7 +206,7 @@ Image.asset(
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                            backgroundColor: const Color(0xFF2720ff),
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -235,7 +220,7 @@ Image.asset(
                           child: const Text(
                             'Login',
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                                fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                           ),
                         ),
                       ),
@@ -243,7 +228,7 @@ Image.asset(
 
                       // ---- Footer ----
                       Text(
-                        "© Government of Punjab | All Rights Reserved",
+                        "© ClassMitra",
                         style: TextStyle(
                             color: const Color.fromARGB(255, 138, 135, 135), fontSize: 12),
                       )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:intl/intl.dart';
+import 'attendende.dart';
 
 class StatusBox extends StatelessWidget {
   final IconData icon;
@@ -91,26 +92,56 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Class Card (Centered)
-              Card(
-                elevation: 8,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                color: Color(0xFFF6F8FA),
-                shadowColor: Colors.black12,
+              // Class Header Card
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.05),
+                      blurRadius: 14,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: width * 0.05, vertical: height * 0.03),
+                  padding: EdgeInsets.symmetric(horizontal: width * 0.05, vertical: height * 0.028),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Center text horizontally
-                    children: const [
-                      Text(
-                        "Class 9A",
-                        style: TextStyle(
-                          fontFamily: 'poppins',
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF1f2b5b),
+                    children: [
+                      Container(
+                        width: 46,
+                        height: 46,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFEAF2FF),
+                          shape: BoxShape.circle,
                         ),
+                        child: const Icon(Icons.class_, color: Color(0xFF3F51B5)),
                       ),
+                      const SizedBox(width: 14),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Class 9A",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                              color: Color(0xFF1f2b5b),
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            "Academic Year 2024–25",
+                            style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Text(
+                        DateFormat('MMM d, yyyy').format(DateTime.now()),
+                        style: const TextStyle(color: Color(0xFF1f2b5b), fontWeight: FontWeight.w600),
+                      )
                     ],
                   ),
                 ),
@@ -128,7 +159,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: height * 0.02),
 
-              // Attendance Taken Box
+              // Attendance Card
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -146,18 +177,37 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'Attendance Taken',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1f2b5b),
+                  children: [
+                  
+                      
+          
+                    const Expanded(
+                      child: Text(
+                        'Attendance Not Taken',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF1f2b5b),
+                        ),
                       ),
                     ),
-                    SizedBox(width: 12),
-                    Icon(Icons.check_circle, color: Color(0xFF4DB6AC), size: 28),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const AttendancePage(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.camera_alt_rounded, size: 18, color: Colors.white),
+                      label: const Text('Open', style: TextStyle(color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2720ff),
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        elevation: 0,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -176,12 +226,28 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Text(
-                    DateFormat('MMM d, yyyy').format(DateTime.now()),
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Color(0xFF1f2b5b),
-                      fontWeight: FontWeight.w500,
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.04),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.calendar_today, size: 14, color: Color(0xFF1f2b5b)),
+                        const SizedBox(width: 6),
+                        Text(
+                          DateFormat('MMM d, yyyy').format(DateTime.now()),
+                          style: const TextStyle(fontSize: 12, color: Color(0xFF1f2b5b), fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
                   ),
                 ],

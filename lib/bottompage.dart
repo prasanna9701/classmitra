@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'notification.dart';
-import 'attendende.dart';
 import 'files.dart';
 import'classroom.dart';
+import 'analysis.dart';
+import 'profile.dart';
 
 class Bottomnav extends StatefulWidget {
   const Bottomnav({super.key});
@@ -16,8 +17,8 @@ class _BottomnavState extends State<Bottomnav> {
   int _selectedIndex = 0;
 
   final List _pages = [
-    const HomePage(),
-    const AttendancePage(),
+    HomePage(),
+    const AnalysisPage(),
     const ResourcesPage(),
     const ClassroomPage(),
   ];
@@ -71,10 +72,10 @@ class _BottomnavState extends State<Bottomnav> {
                   margin: const EdgeInsets.all(8),
                   child: IconButton(
                     onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Profile'),
-                          backgroundColor: Color(0xFF6D5DF6),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfilePage(),
                         ),
                       );
                     },
@@ -112,7 +113,7 @@ class _BottomnavState extends State<Bottomnav> {
               Row(
                 children: [
                   _buildNavItem(icon: Icons.home, index: 0),
-                  _buildNavItem(icon: Icons.person_add_alt_outlined, index: 1),
+                  _buildNavItem(icon: Icons.analytics_outlined, index: 1),
                 ],
               ),
               // Right side
