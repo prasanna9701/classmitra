@@ -41,13 +41,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // ---- Logo ----
-// Image.asset(
-//   'assets/images/punjabicon.jpg',
-//   height: 120,
-//   errorBuilder: (context, error, stackTrace) => 
-//       const Icon(Icons.account_balance, size: 100, color: Colors.grey),
-// ),
                       const SizedBox(height: 12),
                       const Text(
                         'ClassMitra',
@@ -68,8 +61,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(height: 24),
-
-                      // ---- Teacher ID ----
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
